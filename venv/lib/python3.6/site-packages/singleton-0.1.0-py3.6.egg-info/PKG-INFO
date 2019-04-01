@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: singleton
+Version: 0.1.0
+Summary: A singleton class decorator of python.
+Home-page: https://github.com/reyoung/singleton
+Author: reyoung
+Author-email: reyoung@126.com
+License: MIT
+Description: UNKNOWN
+Keywords: singleton thread-safe
+Platform: UNKNOWN
