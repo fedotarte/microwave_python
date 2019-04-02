@@ -45,16 +45,20 @@ class Controller:
     def init_the_microwave(self):
         if self.microwave is None:
             self.microwave = Microwave()
-            print(self.microwave.__str__())
+            print("Your microwve is here!: " + self.microwave.__str__())
         else:
             print("you already have the microwave: " + self.microwave.__str__())
 
     def switch_on_off(self, **kwargs):
-        print("we switched this shit to on!")
-        return True
+        if not self.microwave.is_on:
+            self.microwave.is_on = True
+        else:
+            self.microwave.is_on = False
+        return "it's %s that microwave is on! " % self.microwave.is_on
+
 
     def open_close_door(self):
-        print("we opened the door")
+        if self.microwave.door.is_opened.value
         return False
 
     def insert_food(self, food):
