@@ -1,8 +1,6 @@
 import datetime
 from enum import Enum
 
-from textart import SpecialArt
-
 
 class FoodTemperature(Enum):
     is_cold = True
@@ -48,8 +46,7 @@ class Microwave(object):
         return "%s %s %s %s %s" % (self.is_on, self.is_empty, self.door, self.light, self.m_time)
 
 
-inputed = input("please type something: ")
-if len(inputed) > 0:
-    print("you printed: ", inputed)
+input_text = input("please type something: ")
+if len(input_text) > 0:
+    print("you printed: ", input_text)
 
-spec_art.print_text("bye!")
