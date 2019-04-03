@@ -35,7 +35,7 @@ class Food(object):
 class Microwave(object):
 
     def __init__(self):
-        self.is_on = True
+        self.is_on = False
         self.is_empty = True
         self.door = Door.is_closed
         self.light = Light.is_light_off
@@ -45,7 +45,5 @@ class Microwave(object):
         return "%s %s %s %s %s" % (self.is_on, self.is_empty, self.door, self.light, self.m_time)
 
 
-input_text = input("please type something: ")
-if len(input_text) > 0:
-    print("you printed: ", input_text)
+
 

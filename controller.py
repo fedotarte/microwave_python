@@ -1,11 +1,8 @@
 import sys
 
-from singleton.singleton import Singleton
-
 from microwave import Microwave
 
 
-@Singleton
 class Controller:
     # TODO make this class as a singleton
 
@@ -16,18 +13,23 @@ class Controller:
             0: self.init_the_microwave,
             1: self.switch_on_off,
             2: self.open_close_door,
-            3: self.input_food,
-            4: self.set_timer,
-            5: self.press_start,
-            6: self.press_stop,
-            7: self.check_time
+            3: self.insert_food,
+            # 4: self.set_timer,
+            # 5: self.press_start,
+            # 6: self.press_stop,
+            # 7: self.check_time
         }
 
     # check the input is digit
+    def get_choice_in_game(self, int_input):
+        for key, value in self.int_command_types.items():
+            if key == int_input:
+                value()
+
     def check_correct_digit(self, inputed_text):
         try:
             int_input = int(inputed_text)
-            self.get_choise_in_game(int_input)
+            self.get_choice_in_game(int_input)
 
         except Exception as e:
             print("you got an exception:" + str(e))
@@ -36,10 +38,6 @@ class Controller:
 
     # running through the enum "int_command_types" to find the correct key and initialize the related method
     # in the main.py : get_choice_in_game(check_correct_digit(inputed_text))
-    def get_choice_in_game(self, int_input):
-        for key, value in self.int_command_types.items():
-            if key == int_input:
-                value()
 
     # initialize the microwave if it doesn't exist
     def init_the_microwave(self):
@@ -60,8 +58,11 @@ class Controller:
         closed_door = self.microwave.door.is_closed.value
         if not closed_door:
             closed_door = True
+            print("the door is closed!")
         else:
             closed_door = False  #door is opened
+            print("the door is opened!")
+        print("closed_door: " + id(closed_door), ", self.microwave.door.is_closed.value: " +  id(self.microwave.door.is_closed.value))
 
         return closed_door
 
@@ -74,3 +75,4 @@ class Controller:
     def quit(self, inputed_q):
         if inputed_q.to_upper_case == "q":
             exit()
+
