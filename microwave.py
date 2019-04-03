@@ -10,7 +10,6 @@ class FoodTemperature(Enum):
 
 class Door(Enum):
     is_closed = True
-    is_opened = False
 
 
 class Light(Enum):

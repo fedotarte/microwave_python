@@ -23,7 +23,7 @@ class Controller:
             7: self.check_time
         }
 
-    #check the input is digit
+    # check the input is digit
     def check_correct_digit(self, inputed_text):
         try:
             int_input = int(inputed_text)
@@ -45,21 +45,25 @@ class Controller:
     def init_the_microwave(self):
         if self.microwave is None:
             self.microwave = Microwave()
-            print("Your microwve is here!: " + self.microwave.__str__())
+            print("Your microwave is here!: " + self.microwave.__str__())
         else:
             print("you already have the microwave: " + self.microwave.__str__())
 
-    def switch_on_off(self, **kwargs):
+    def switch_on_off(self):
         if not self.microwave.is_on:
             self.microwave.is_on = True
         else:
             self.microwave.is_on = False
-        return "it's %s that microwave is on! " % self.microwave.is_on
-
+        print("it's %s that microwave is on! " % self.microwave.is_on)
 
     def open_close_door(self):
-        if self.microwave.door.is_opened.value
-        return False
+        closed_door = self.microwave.door.is_closed.value
+        if not closed_door:
+            closed_door = True
+        else:
+            closed_door = False  #door is opened
+
+        return closed_door
 
     def insert_food(self, food):
         return True
@@ -70,4 +74,3 @@ class Controller:
     def quit(self, inputed_q):
         if inputed_q.to_upper_case == "q":
             exit()
-
