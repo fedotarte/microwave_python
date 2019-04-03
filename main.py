@@ -12,3 +12,5 @@ input_command = ''
 while input_command.upper() != 'Q':
     input_command = input("input the required command: ")
     controller.check_correct_digit(input_command)
+
+spec_art.print_text("bye!")

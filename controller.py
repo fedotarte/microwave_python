@@ -33,6 +33,7 @@ class Controller:
 
         except Exception as e:
             print("you got an exception:" + str(e))
+
         finally:
             print("to quit press q, t orestart r")
 
@@ -55,16 +56,13 @@ class Controller:
         print("it's %s that microwave is on! " % self.microwave.is_on)
 
     def open_close_door(self):
-        closed_door = self.microwave.door.is_closed.value
-        if not closed_door:
-            closed_door = True
+        if not self.microwave.door.is_closed.value:
+            self.microwave.door.is_closed.value = True
             print("the door is closed!")
         else:
-            closed_door = False  #door is opened
+            self.microwave.door.is_closed.value = False  # door is opened
             print("the door is opened!")
-        print("closed_door: " + id(closed_door), ", self.microwave.door.is_closed.value: " +  id(self.microwave.door.is_closed.value))
 
-        return closed_door
 
     def insert_food(self, food):
         return True
@@ -75,4 +73,3 @@ class Controller:
     def quit(self, inputed_q):
         if inputed_q.to_upper_case == "q":
             exit()
-
