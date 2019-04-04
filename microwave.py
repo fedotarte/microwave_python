@@ -11,6 +11,13 @@ class FoodTemperature(Enum):
 class Door(Enum):
     is_closed = True
 
+    def __init__(self, val):
+        # No need to set self.name. It's already handled.
+        self.val = val
+
+    # def __setattr__(self, key, value):
+    #     self.value = value
+
 
 class Light(Enum):
     is_light_on = False

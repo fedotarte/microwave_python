@@ -13,7 +13,7 @@ class Controller:
             0: self.init_the_microwave,
             1: self.switch_on_off,
             2: self.open_close_door,
-            3: self.insert_food,
+            3: self.insert_food
             # 4: self.set_timer,
             # 5: self.press_start,
             # 6: self.press_stop,
@@ -56,20 +56,25 @@ class Controller:
         print("it's %s that microwave is on! " % self.microwave.is_on)
 
     def open_close_door(self):
-        if not self.microwave.door.is_closed.value:
-            self.microwave.door.is_closed.value = True
+        if not self.microwave.door.is_closed:
+            self.microwave.door.__setattr__("is_closed", True)
             print("the door is closed!")
         else:
-            self.microwave.door.is_closed.value = False  # door is opened
+            # self.microwave.door.is_closed.value = False  # door is opened
+            self.microwave.door.__setattr__("is_closed", False)
             print("the door is opened!")
 
-
-    def insert_food(self, food):
-        return True
+    def insert_food(self):
+        if not self.microwave.is_empty and self.microwave.door.is_closed:
+            self.microwave.is_empty = False
+            print("the food inside!")
+        else:
+            self.microwave.is_empty = True
+            print("you've got the food!")
 
     def microwave_exists(self, check_microwave):
         return self.microwave == check_microwave
 
-    def quit(self, inputed_q):
-        if inputed_q.to_upper_case == "q":
+    def quit(self, inputed_text):
+        if self.inputed_text.to_upper_case == "Q":
             exit()
