@@ -33,24 +33,32 @@ class Controller:
     # check the input is digit
     def get_str_commands(self, str_input):
         for key, value in self.int_command_types.items():
+            is_ok = False
             if key == str_input:
+                is_ok = True
                 value()
+        return is_ok
 
     def get_choice_in_game(self, int_input):
+        is_ok = False
         for key, value in self.int_command_types.items():
             if key == int_input:
+                is_ok = True
                 value()
+        return is_ok
 
     def check_correct_digit(self, inputed_text):
         try:
             int_input = int(inputed_text)
-            self.get_choice_in_game(int_input)
+            if not self.get_choice_in_game(int_input):
+                print("print from 0 to 7!")
 
-        except Exception as e:
-            print("you got an exception:" + str(e))
+        except ValueError as e:
+            print("it's not an Integer!:" + str(e))
             try:
-                self.get_str_commands(inputed_text)
-            except Exception as ex :
+                if not self.get_str_commands(inputed_text):
+                    print("type q or r!")
+            except Exception as ex:
                 print("the command is  uncorrect! " + str(ex))
         finally:
             print("to quit press q/Q, to  restart press r/R")
