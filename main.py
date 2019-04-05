@@ -1,15 +1,14 @@
 from controller import Controller
-from microwave import Microwave
 from textart import SpecialArt
 
-spec_art = SpecialArt()
 
-spec_art.print_text("microwave")
+SpecialArt.print_text("microwave")
 
 controller = Controller()
 
 
 def play_game():
+    print("to quit press q, to restart press r ")
     input_command = ''
     while input_command.upper() != 'Q':
         input_command = input("input the required command: ")
@@ -22,4 +21,3 @@ def play_game():
 
 play_game()
 
-spec_art.print_text("bye!")
