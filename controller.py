@@ -101,6 +101,8 @@ class Controller:
         return self.microwave == check_microwave
 
     def restart_microwave(self):
+        print()
+        SpecialArt.print_text("restart!")
         try:
             p = psutil.Process(os.getpid())
             for handler in p.open_files() + p.connections():

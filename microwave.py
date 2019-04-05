@@ -52,5 +52,9 @@ class Microwave(object):
         return "%s %s %s %s %s" % (self.is_on, self.is_empty, self.door, self.light, self.m_time)
 
 
+class Food(object):
+    pass
+
+
 
 
