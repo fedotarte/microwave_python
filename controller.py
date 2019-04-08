@@ -100,6 +100,20 @@ class Controller:
     def microwave_exists(self, check_microwave):
         return self.microwave == check_microwave
 
+
+    # def set_timer(self):
+    #     import time
+    #     print('Hello')
+    #     time.sleep(5)  # number of seconds
+    #     print('Bye')
+    #
+    # def set_timer(self, seconds):
+    #     import time
+    #     if seconds>0:
+    #         print('Hello')
+    #         time.sleep(seconds)  # number of seconds
+    #         print('Bye')
+
     def restart_microwave(self):
         print()
         SpecialArt.print_text("restart!")

@@ -1,4 +1,5 @@
 import datetime
+import time
 from enum import Enum
 
 
@@ -25,13 +26,31 @@ class Light(Enum):
 
 
 class MicrowaveTime(object):
+    microwave_last_time = datetime.datetime.now().time()
+
     def __init__(self):
-        self.microwave_current_time = datetime.datetime.now().strftime('%H:%M')
+        self.microwave_current_time = datetime.datetime.now().time()
+    #.strftime('%H:%M') add to to print time
+    def check_time(self):
+        if self.microwave_last_time < self.microwave_current_time:
+            self.microwave_last_time = datetime.datetime.now().time()
+            return self.microwave_last_time
 
 
 class MicrowaveTimer(object):
     def __init__(self):
-        pass
+
+        self.timer_inc = 0
+
+    def start(self, seconds):
+        if self.timer_inc != 0:
+            self.timer_inc = 0
+        while seconds > 0:
+            print("1 second passed")
+            time.sleep(1)
+            self.timer_inc += 1
+            seconds -= self.timer_inc
+            print("seconds remaining: " + seconds)
 
 
 class Food(object):
@@ -47,6 +66,7 @@ class Microwave(object):
         self.door = Door.is_closed
         self.light = Light.is_light_off
         self.m_time = MicrowaveTime().microwave_current_time
+        self.m_timer = MicrowaveTimer()
 
     def __str__(self):
         return "%s %s %s %s %s" % (self.is_on, self.is_empty, self.door, self.light, self.m_time)
@@ -54,7 +74,3 @@ class Microwave(object):
 
 class Food(object):
     pass
-
-
-
-
