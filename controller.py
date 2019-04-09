@@ -101,7 +101,7 @@ class Controller:
         return self.microwave == check_microwave
 
     def set_timer(self):
-        self.microwave.m_timer.start(10)
+        self.microwave.m_timer.start(15)
 
     # def set_timer(self):
     #     import time
