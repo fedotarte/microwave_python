@@ -30,7 +30,8 @@ class MicrowaveTime(object):
 
     def __init__(self):
         self.microwave_current_time = datetime.datetime.now().time()
-    #.strftime('%H:%M') add to to print time
+
+    # .strftime('%H:%M') add to to print time
     def check_time(self):
         if self.microwave_last_time < self.microwave_current_time:
             self.microwave_last_time = datetime.datetime.now().time()
@@ -47,9 +48,8 @@ class MicrowaveTimer(object):
         while seconds > 0:
             print("1 second passed")
             time.sleep(1)
-            self.timer_inc += 1
-            seconds -= self.timer_inc
-            print("seconds remaining: " + seconds)
+            seconds -= 1
+            print("seconds remaining: " + str(seconds))
 
 
 class Food(object):

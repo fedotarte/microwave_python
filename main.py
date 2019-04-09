@@ -15,7 +15,7 @@ def play_game():
         try:
             controller.check_correct_digit(input_command)
         except Exception as e:
-            print("that;s too bad... we will try again!" + str(e))
+            print("main error... we will try again!" + str(e))
             play_game()
 
 

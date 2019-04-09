@@ -28,7 +28,7 @@ class Controller:
             4: self.set_timer
             # 5: self.press_start,
             # 6: self.press_stop,
-            #7: self.check_time
+            # 7: self.check_time
         }
 
     # check the input is digit
@@ -100,10 +100,8 @@ class Controller:
     def microwave_exists(self, check_microwave):
         return self.microwave == check_microwave
 
-
     def set_timer(self):
         self.microwave.m_timer.start(5)
-
 
     # def set_timer(self):
     #     import time
