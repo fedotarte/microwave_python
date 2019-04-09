@@ -24,11 +24,11 @@ class Controller:
             0: self.init_the_microwave,
             1: self.switch_on_off,
             2: self.open_close_door,
-            3: self.insert_food
-            # 4: self.set_timer,
+            3: self.insert_food,
+            4: self.set_timer
             # 5: self.press_start,
             # 6: self.press_stop,
-            # 7: self.check_time
+            #7: self.check_time
         }
 
     # check the input is digit
@@ -99,6 +99,10 @@ class Controller:
 
     def microwave_exists(self, check_microwave):
         return self.microwave == check_microwave
+
+
+    def set_timer(self):
+        self.microwave.m_timer.start(5)
 
 
     # def set_timer(self):

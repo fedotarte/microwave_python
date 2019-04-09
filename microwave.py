@@ -39,7 +39,6 @@ class MicrowaveTime(object):
 
 class MicrowaveTimer(object):
     def __init__(self):
-
         self.timer_inc = 0
 
     def start(self, seconds):
