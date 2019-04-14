@@ -8,7 +8,7 @@ from microwave import Microwave
 from textart import SpecialArt
 
 
-class Controller:
+class Controller: #че за синглетон
     # TODO make this class as a singleton
 
     microwave = None
@@ -73,7 +73,7 @@ class Controller:
         else:
             print("you already have the microwave: " + self.microwave.__str__())
 
-    def switch_on_off(self):
+    def switch_on_off(self): #а при выключении микроволновки никакого сообщения не выдается?
         if not self.microwave.is_on:
             self.microwave.is_on = True
         else:
@@ -82,7 +82,7 @@ class Controller:
 
     def open_close_door(self):
         if not self.microwave.door.is_closed:
-            self.microwave.door.__setattr__("is_closed", True)
+            self.microwave.door.__setattr__("is_closed", True) #тут сложна
             print("the door is closed!")
         else:
             # self.microwave.door.is_closed.value = False  # door is opened
@@ -116,7 +116,7 @@ class Controller:
     #         time.sleep(seconds)  # number of seconds
     #         print('Bye')
 
-    def restart_microwave(self):
+    def restart_microwave(self): #этот метод нигде не вызывается?
         print()
         SpecialArt.print_text("restart!")
         try:

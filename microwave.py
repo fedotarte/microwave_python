@@ -26,13 +26,13 @@ class Light(Enum):
 
 
 class MicrowaveTime(object):
-    microwave_last_time = datetime.datetime.now().time()
+    microwave_last_time = datetime.datetime.now().time() #вот это типа че? изначательное значение переменной? и почем4 оно не в методе?
 
     def __init__(self):
-        self.microwave_current_time = datetime.datetime.now().time()
+        self.microwave_current_time = datetime.datetime.now().time() #вот тут же уже задали такое же значение
 
     # .strftime('%H:%M') add to to print time
-    def check_time(self):
+    def check_time(self): #непонятно зачем эта проверка
         if self.microwave_last_time < self.microwave_current_time:
             self.microwave_last_time = datetime.datetime.now().time()
             return self.microwave_last_time
@@ -67,9 +67,8 @@ class Microwave(object):
         self.m_time = MicrowaveTime().microwave_current_time
         self.m_timer = MicrowaveTimer()
 
-    def __str__(self):
+    def __str__(self): #вот тут уже не инит а строка типа, не поняла. типа оба метода сработают при выхове класса?
         return "%s %s %s %s %s" % (self.is_on, self.is_empty, self.door, self.light, self.m_time)
 
 
-class Food(object):
-    pass
+
