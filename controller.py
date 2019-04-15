@@ -8,7 +8,7 @@ from microwave import Microwave
 from textart import SpecialArt
 
 
-class Controller: #че за синглетон
+class Controller:  # че за синглетон
     # TODO make this class as a singleton
 
     microwave = None
@@ -73,8 +73,8 @@ class Controller: #че за синглетон
         else:
             print("you already have the microwave: " + self.microwave.__str__())
 
-    def switch_on_off(self): #а при выключении микроволновки никакого сообщения не выдается?
-        #TODO ну напиши, хули
+    def switch_on_off(self):  # а при выключении микроволновки никакого сообщения не выдается?
+        # TODO ну напиши, хули
         if not self.microwave.is_on:
             self.microwave.is_on = True
         else:
@@ -83,11 +83,13 @@ class Controller: #че за синглетон
 
     def open_close_door(self):
         if not self.microwave.door.is_closed:
-            self.microwave.door.__setattr__("is_closed", True) #тут сложна
+            # self.microwave.door.__setattr__("is_closed", True)
+            self.microwave.door.is_closed = True
             print("the door is closed!")
         else:
             # self.microwave.door.is_closed.value = False  # door is opened
-            self.microwave.door.__setattr__("is_closed", False)
+            # self.microwave.door.__setattr__("is_closed", False)
+            self.microwave.door.is_closed = False
             print("the door is opened!")
 
     def insert_food(self):
@@ -95,14 +97,14 @@ class Controller: #че за синглетон
             self.microwave.is_empty = False
             print("the food inside!")
         else:
-            #TODO ЛИЗЕ поставь проверку на дверь, когда забираем еду
+            # TODO ЛИЗЕ поставь проверку на дверь, когда забираем еду
             self.microwave.is_empty = True
             print("you've got the food!")
 
     def microwave_exists(self, check_microwave):
         return self.microwave == check_microwave
 
-    #TODO ЛИЗЕ поставить обработку параметра с клавиатуры, чтобы устанавливать время таймера
+    # TODO ЛИЗЕ поставить обработку параметра с клавиатуры, чтобы устанавливать время таймера
     def set_timer(self):
         self.microwave.m_timer.start(30)
 
@@ -119,7 +121,7 @@ class Controller: #че за синглетон
     #         time.sleep(seconds)  # number of seconds
     #         print('Bye')
 
-    def restart_microwave(self): #этот метод нигде не вызывается?
+    def restart_microwave(self):  # этот метод нигде не вызывается?
         print()
         SpecialArt.print_text("restart!")
         try:
