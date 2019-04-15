@@ -74,6 +74,7 @@ class Controller: #че за синглетон
             print("you already have the microwave: " + self.microwave.__str__())
 
     def switch_on_off(self): #а при выключении микроволновки никакого сообщения не выдается?
+        #TODO ну напиши, хули
         if not self.microwave.is_on:
             self.microwave.is_on = True
         else:
@@ -94,12 +95,14 @@ class Controller: #че за синглетон
             self.microwave.is_empty = False
             print("the food inside!")
         else:
+            #TODO ЛИЗЕ поставь проверку на дверь, когда забираем еду
             self.microwave.is_empty = True
             print("you've got the food!")
 
     def microwave_exists(self, check_microwave):
         return self.microwave == check_microwave
 
+    #TODO ЛИЗЕ поставить обработку параметра с клавиатуры, чтобы устанавливать время таймера
     def set_timer(self):
         self.microwave.m_timer.start(30)
 
