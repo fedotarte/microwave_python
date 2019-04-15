@@ -61,14 +61,15 @@ class Microwave(object):
 
     def __init__(self):
         self.is_on = False
+        self.is_off = True
         self.is_empty = True
         self.door = Door.is_closed
         self.light = Light.is_light_off
         self.m_time = MicrowaveTime().microwave_current_time
         self.m_timer = MicrowaveTimer()
 
-    def __str__(self): #вот тут уже не инит а строка типа, не поняла. типа оба метода сработают при выхове класса?
-        return "%s %s %s %s %s" % (self.is_on, self.is_empty, self.door, self.light, self.m_time)
+    def __str__(self):
+        return "%s %s %s %s %s %s" % (self.is_on, self.is_off, self.is_empty, self.door, self.light, self.m_time)
 
 
 
