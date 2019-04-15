@@ -52,7 +52,8 @@ class Controller:
         try:
             int_input = int(inputed_text)
             if not self.get_choice_in_game(int_input):
-                print("print from 0 to 7!")
+                max_key = max(map(int, self.int_command_types))
+                print("print from 0 to", str(max_key))
 
         except ValueError as e:
             print("it's not an Integer.. we will try to check it out...")
@@ -107,8 +108,8 @@ class Controller:
 
     #TODO ЛИЗЕ поставить обработку параметра с клавиатуры, чтобы устанавливать время таймера
     def set_timer(self):
-        #data = input("Enter a number: ")
-        self.microwave.m_timer.start(4)
+        data = input("Enter a number: ")
+        self.microwave.m_timer.start(int(data))
 
     # def set_timer(self):
     #     import time
@@ -123,7 +124,7 @@ class Controller:
     #         time.sleep(seconds)  # number of seconds
     #         print('Bye')
 
-    def restart_microwave(self): #этот метод нигде не вызывается?
+    def restart_microwave(self):
         print()
         SpecialArt.print_text("restart!")
         try:

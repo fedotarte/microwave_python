@@ -26,10 +26,10 @@ class Light(Enum):
 
 
 class MicrowaveTime(object):
-    microwave_last_time = datetime.datetime.now().time() #вот это типа че? изначательное значение переменной? и почем4 оно не в методе?
+    microwave_last_time = datetime.datetime.now().time()
 
     def __init__(self):
-        self.microwave_current_time = datetime.datetime.now().time() #вот тут же уже задали такое же значение
+        self.microwave_current_time = datetime.datetime.now().time()
 
     # .strftime('%H:%M') add to to print time
     def check_time(self): #непонятно зачем эта проверка
