@@ -74,8 +74,7 @@ class Controller:
             print("you already have the microwave: " + self.microwave.__str__())
 
     def switch_on_off(self): #а при выключении микроволновки никакого сообщения не выдается?
-        #TODO ну напиши, хули
-        #я сделалъ
+
         if not self.microwave.is_on:
             self.microwave.is_on = True
             print("it's %s that microwave is on! " % self.microwave.is_on)
@@ -86,11 +85,11 @@ class Controller:
 
     def open_close_door(self):
         if not self.microwave.door.is_closed:
-            self.microwave.door.__setattr__("is_closed", True)
+            self.microwave.door.is_closed = True
             print("the door is closed!")
         else:
             # self.microwave.door.is_closed.value = False  # door is opened
-            self.microwave.door.__setattr__("is_opened", False)
+            self.microwave.door.is_closed= False
             print("the door is opened!")
 
     def insert_food(self):
