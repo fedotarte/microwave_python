@@ -47,7 +47,7 @@ class Controller:
                 is_ok = True
                 value()
         return is_ok
-
+    #TODO refactor: 1) check_correct_digit(...) should return bool, check it out from the main.py
     def check_correct_digit(self, inputed_text):
         try:
             int_input = int(inputed_text)
