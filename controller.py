@@ -7,6 +7,7 @@ import logging
 from microwave import Microwave
 from textart import SpecialArt
 
+import datetime
 
 class Controller:
     # TODO make this class as a singleton
@@ -25,10 +26,10 @@ class Controller:
             1: self.switch_on_off,
             2: self.open_close_door,
             3: self.get_set_food,
-            4: self.set_timer
+            4: self.set_timer,
             # 5: self.press_start,
             # 6: self.press_stop,
-            # 7: self.check_time
+            7: self.check_time
         }
 
     # check the input is digit
@@ -126,7 +127,10 @@ class Controller:
     #         print('Bye')
 
     def check_time(self):
-        pass
+
+        now_time = datetime.datetime.now() #TODO msk hh mm
+
+        print(now_time)
 
     def restart_microwave(self):
         print()
