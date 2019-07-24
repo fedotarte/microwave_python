@@ -1,10 +1,7 @@
 from controller import Controller
 from textart import SpecialArt
 
-
 SpecialArt.print_text("microwave")
-
-
 
 controller = Controller()
 
@@ -18,8 +15,8 @@ def play_game():
             controller.check_correct_digit(input_command)
         except Exception as e:
             print("main error... we will try again!" + str(e))
+            # рекурсия типа)
             play_game()
 
 
 play_game()
-

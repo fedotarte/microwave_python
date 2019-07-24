@@ -24,7 +24,7 @@ class Controller:
             0: self.init_the_microwave,
             1: self.switch_on_off,
             2: self.open_close_door,
-            3: self.insert_food,
+            3: self.get_set_food,
             4: self.set_timer
             # 5: self.press_start,
             # 6: self.press_stop,
@@ -47,7 +47,8 @@ class Controller:
                 is_ok = True
                 value()
         return is_ok
-    #TODO refactor: 1) check_correct_digit(...) should return bool, check it out from the main.py
+
+    # TODO refactor: 1) check_correct_digit(...) should return bool, check it out from the main.py
     def check_correct_digit(self, inputed_text):
         try:
             int_input = int(inputed_text)
@@ -74,7 +75,7 @@ class Controller:
         else:
             print("you already have the microwave: " + self.microwave.__str__())
 
-    def switch_on_off(self): #а при выключении микроволновки никакого сообщения не выдается?
+    def switch_on_off(self):  # а при выключении микроволновки никакого сообщения не выдается?
 
         if not self.microwave.is_on:
             self.microwave.is_on = True
@@ -90,23 +91,23 @@ class Controller:
             print("the door is closed!")
         else:
             # self.microwave.door.is_closed.value = False  # door is opened
-            self.microwave.door.is_closed= False
+            self.microwave.door.is_closed = False
             print("the door is opened!")
 
-    def insert_food(self):
+    def get_set_food(self):
         if not self.microwave.is_empty and self.microwave.door.is_closed:
             self.microwave.is_empty = False
             print("the food inside!")
         else:
-            #TODO ЛИЗЕ поставь проверку на дверь, когда забираем еду
-            #так уже же есть проверка выше или че
+            # TODO ЛИЗЕ поставь проверку на дверь, когда забираем еду
+            # так уже же есть проверка выше или че
             self.microwave.is_empty = True
             print("you've got the food!")
 
     def microwave_exists(self, check_microwave):
         return self.microwave == check_microwave
 
-    #TODO ЛИЗЕ поставить обработку параметра с клавиатуры, чтобы устанавливать время таймера
+    # TODO ЛИЗЕ поставить обработку параметра с клавиатуры, чтобы устанавливать время таймера
     def set_timer(self):
         data = input("Enter a number: ")
         self.microwave.m_timer.start(int(data))
@@ -124,6 +125,9 @@ class Controller:
     #         time.sleep(seconds)  # number of seconds
     #         print('Bye')
 
+    def check_time(self):
+        pass
+
     def restart_microwave(self):
         print()
         SpecialArt.print_text("restart!")
@@ -139,4 +143,4 @@ class Controller:
 
     def quit_microwave(self):
         SpecialArt.print_text("bye!")
-        exit()
+        return exit()
