@@ -6,5 +6,5 @@ to check it out:
 
  - clone the project
  - use the terminal and at type the project folder:  
- `python main.py` or `./main.py`
+ `python3 main.py` or `./main.py`
  
